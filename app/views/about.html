@@ -1,0 +1,40 @@
+<script>
+    var jsonText = JSON.stringify({
+        Name: 'Srikanth'
+    });
+    alert(jsonText);
+
+    /*
+    $.ajax({
+        type: "POST",
+        url: "https://iservices.earlymoments.com/hello",
+        data: jsonText,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(function (data) {
+        alert("Response: " + data);
+    }).fail(function (error) {
+        var err = textStatus + ", " + error;
+        alert("Request Failed: " + err);
+    });
+*/
+    $.ajax({
+        type: 'GET',
+        url: 'https://iservices.earlymoments.com/hello',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: jsonText,
+        headers: {
+            'Access-Control-Allow-Origin': true
+        },
+        xhrFields: {
+            withCredentials: false
+        },
+        success: function () {
+            alert('success');
+        },
+        error: function () {
+            alert('failure');
+        }
+    });
+</script>
