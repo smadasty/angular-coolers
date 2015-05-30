@@ -1,21 +1,23 @@
 <script>
-    jQuery.support.cors = true;
+    /*
+        jQuery.support.cors = true;
 
-    function TestRequestCall() {
-        $.ajax({
-            url: 'http://localhost:53876/hello/',
-            cache: false,
-            type: "GET",
-            data: {
-                name: 'something1',
-                format: 'json'
-            },
+        function TestRequestCall() {
+            $.ajax({
+                url: 'http://localhost:53876/hello/',
+                cache: false,
+                type: "GET",
+                data: {
+                    name: 'something1',
+                    format: 'json'
+                },
 
-            success: function (response) {
-                $("#putResponse").text(response.result + '     ' + response.status);
-            }
-        });
-    }
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+    */
 
     /*
         //?calllback=?
@@ -138,15 +140,3 @@
         }
         */
 </script>
-
-<p align="center" style="font-size: 20px;">
-    <!--a href="#" onclick="makeCorsRequest(); return false;">Run Sample</a-->
-    <a href="#" onclick="TestRequestCall(); return false;">Run Sample</a>
-    <h2>
-        PUT Response
-    </h2>
-
-    <pre id="putResponse">
-        <!-- To be populated dynamically. -->
-    </pre>
-</p>
