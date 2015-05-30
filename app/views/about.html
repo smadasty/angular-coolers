@@ -4,28 +4,14 @@
     });
     alert(jsonText);
 
-    /*
-    $.ajax({
-        type: "POST",
-        url: "https://iservices.earlymoments.com/hello",
-        data: jsonText,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json"
-    }).done(function (data) {
-        alert("Response: " + data);
-    }).fail(function (error) {
-        var err = textStatus + ", " + error;
-        alert("Request Failed: " + err);
-    });
-*/
     $.ajax({
         type: 'GET',
-        url: 'https://iservices.earlymoments.com/hello',
+        url: 'http://localhost:53876/hello',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: jsonText,
         headers: {
-            'Access-Control-Allow-Origin': true
+            'Access-Control-Allow-Origin': "*"
         },
         xhrFields: {
             withCredentials: false
@@ -37,4 +23,24 @@
             alert('failure');
         }
     });
+
+    /*
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        dataType: "json",
+        url: "http://localhost:53876/hello",
+        success: function (data, textStatus, jqXHR) {
+            alert(data.Result);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            var data = $.parseJSON(xhr.responseText);
+            if (data === null)
+                alert(textStatus + " HttpCode:" + xhr.status);
+            else
+                alert("ERROR: " + data.ResponseStatus.Message +
+                    (data.ResponseStatus.StackTrace ? " \r\n Stack:" + data.ResponseStatus.StackTrace : ""));
+        }
+    });
+    */
 </script>
