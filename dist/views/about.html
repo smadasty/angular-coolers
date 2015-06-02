@@ -1,140 +1,38 @@
 <script>jQuery.support.cors = true;
 
-    function TestRequestCall() {
+    function RunRequestCall() {
         $.ajax({
-            url: 'http://localhost:53876/hello/',
+            url: 'https://iservices.earlymoments.com/hello/',
             cache: false,
             type: "GET",
             data: {
-                name: 'something1',
-                format: 'json'
+                name: 'Jarvis!',
+                format: 'json',
+                calllback: '?'
             },
 
             success: function (response) {
-                $("#putResponse").text(response.result + '     ' + response.status);
+                $("#putResponse").text(response.result + '\t' + response.status + '\t' + response.serverDate);
+            }
+        });
+    }</script> <pre class="prettyprint">
+&lt;script&gt;
+    jQuery.support.cors = true;
+    function RunRequestCall() {
+        $.ajax({
+            url: 'https://iservices.earlymoments.com/hello/',
+            cache: false,
+            type: "GET",
+            data: {
+                name: 'Jarvis!',
+                format: 'json',
+                calllback: '?'
+            },
+            success: function (response) {
+                $("#putResponse").text(response.result + '\t' + response.status + '\t' + response.serverDate);
             }
         });
     }
-
-    /*
-        //?calllback=?
-    // Create the XHR object.
-    function createCORSRequest(method, url) {
-        var xhr = new XMLHttpRequest();
-        if ("withCredentials" in xhr) {
-            // XHR for Chrome/Firefox/Opera/Safari.
-            xhr.open(method, url, true);
-        } else if (typeof XDomainRequest != "undefined") {
-            // XDomainRequest for IE.
-            xhr = new XDomainRequest();
-            xhr.open(method, url);
-        } else {
-            // CORS not supported.
-            xhr = null;
-        }
-        return xhr;
-    }
-
-    // Helper method to parse the title tag from the response.
-    function getTitle(text) {
-        return text.match('<title>(.*)?</title>')[1];
-    }
-
-    // Make the actual CORS request.
-    function makeCorsRequest() {
-        // All HTML5 Rocks properties support CORS.
-        var url = 'http://localhost:53876/hello/';
-
-        var xhr = createCORSRequest('GET', url);
-        if (!xhr) {
-            alert('CORS not supported');
-            return;
-        }
-
-        // Response handlers.
-        xhr.onload = function () {
-            //var text = xhr.responseText;
-            //var title = getTitle(text);
-            alert(xhr.responseText);
-            //alert('Response from CORS request to ' + url + ': ' + title);
-        };
-
-        xhr.onerror = function () {
-            alert('Woops, there was an error making the request.');
-        };
-
-        xhr.send("{name:'sri'}, {type: 'text/json'}");
-    }
-
-*/
-
-    /*
-                                                                                                        var jsonText = JSON.stringify({
-                                                                                                            Name: 'Srikanth'
-                                                                                                        });
-                                                                                                        alert(jsonText);
-
-                                                                                                        $.ajax({
-                                                                                                            type: 'GET',
-                                                                                                            url: 'http://localhost:53876/hello',
-                                                                                                            contentType: "application/json; charset=utf-8",
-                                                                                                            dataType: "json",
-                                                                                                            data: jsonText,
-                                                                                                            headers: {
-                                                                                                                'Access-Control-Allow-Origin': "*"
-                                                                                                            },
-                                                                                                            xhrFields: {
-                                                                                                                withCredentials: false
-                                                                                                            },
-                                                                                                            success: function () {
-                                                                                                                alert('success');
-                                                                                                            },
-                                                                                                            error: function () {
-                                                                                                                alert('failure');
-                                                                                                            }
-                                                                                                        });
-
-
-                                                                                                        $.ajax({
-                                                                                                            type: "GET",
-                                                                                                            contentType: "application/json",
-                                                                                                            dataType: "json",
-                                                                                                            url: "http://localhost:53876/hello",
-                                                                                                            success: function (data, textStatus, jqXHR) {
-                                                                                                                alert(data.Result);
-                                                                                                            },
-                                                                                                            error: function (xhr, textStatus, errorThrown) {
-                                                                                                                var data = $.parseJSON(xhr.responseText);
-                                                                                                                if (data === null)
-                                                                                                                    alert(textStatus + " HttpCode:" + xhr.status);
-                                                                                                                else
-                                                                                                                    alert("ERROR: " + data.ResponseStatus.Message +
-                                                                                                                        (data.ResponseStatus.StackTrace ? " \r\n Stack:" + data.ResponseStatus.StackTrace : ""));
-                                                                                                            }
-                                                                                                        });
-                                                                                                        */
-
-    /*
-        function createCORSRequest(method, url) {
-            var xhr = new XMLHttpRequest();
-            if ("withCredentials" in xhr) {
-                xhr.open(method, url, true);
-            } else if (typeof XDomainRequest != "undefined") {
-                xhr = new XDomainRequest();
-                xhr.open(method, url);
-            } else {
-                xhr = null;
-            }
-            return xhr;
-        }
-
-        var request = createCORSRequest("get", "http://localhost:53876/hello/sri");
-        if (request) {
-            request.onload = function (data) {
-                $('#dv').val(request.responseText)
-            };
-            request.send();
-        }
-        */</script> <p align="center" style="font-size: 20px"> <!--a href="#" onclick="makeCorsRequest(); return false;">Run Sample</a--> <a href="#" onclick="TestRequestCall(); return false">Run Sample</a> <h2> PUT Response </h2> <pre id="putResponse">
-        <!-- To be populated dynamically. -->
+&lt;/script&gt;
+</pre> <p align="center" style="font-size: 20px"> <a href="#" onclick="RunRequestCall(); return false">Run Sample</a> <h2> GET Response </h2> <pre id="putResponse">
     </pre> </p>
