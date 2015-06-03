@@ -1,0 +1,77 @@
+<script>
+    jQuery.support.cors = true;
+
+    function AppRequestCall() {
+        $.ajax({
+            url: 'http://localhost:53876/addSubscription/',
+            cache: false,
+            type: "GET",
+            data: {
+                Token: '21043192-9560-42B3-883C-76AA80EAA075',
+                transactionType: 'S',
+                appName: 'LTR',
+                billingFnam: 'xyz',
+                billingLnam: 'xyz',
+                subscriptionPlan: '1M',
+                subscriptionAmount: 6.99,
+                email: 'smadishetti@sandviks.com',
+                password: 'smile',
+                cardType: 'AX',
+                cardNumber: '371551218022054',
+                securityCode: '9062',
+                expirationMonth: '03',
+                expirationYear: '16',
+                billingZip: '06810',
+                landingUrl: 'https://apps.hookedonphonics.com/?pc=ASDFGERU',
+                format: 'json'
+            },
+
+            success: function (response) {
+                $("#putResponse").text('Status: ' + response.status + '\t Reference Id: ' + response.refId + '\tSubscription Id: ' + response.subscriptionId + '\tMessage: ' + response.message);
+            }
+        });
+    }
+</script>
+<pre class="prettyprint">
+&lt;script&gt;
+    jQuery.support.cors = true;
+    function AppRequestCall() {
+        $.ajax({
+            url: 'http://localhost:53876/addSubscription/',
+            cache: false,
+            type: "GET",
+            data: {
+                Token: '21043192-9560-42B3-883C-76AA80EAA075',
+                transactionType: 'S',
+                appName: 'LTR',
+                billingFnam: 'xyz',
+                billingLnam: 'xyz',
+                subscriptionPlan: '1M',
+                subscriptionAmount: '6.99',
+                email: 'smadishetti@sandviks.com',
+                password: 'smile',
+                cardType: 'AX',
+                cardNumber: '371551218022054',
+                securityCode: '9062',
+                expirationMonth: '03',
+                expirationYear: '16',
+                billingZip: '06810',
+                landingUrl: 'https://apps.hookedonphonics.com/?pc=ASDFGERU',
+                format = 'json'
+            },
+
+            success: function (response) {
+                $("#putResponse").text(response.status + '\t' + response.refId + '\t' + response.subscriptionId + '\t' + response.message);
+            }
+        });
+    }
+&lt;/script&gt;
+</pre>
+<p align="center" style="font-size: 20px;">
+    <a href="#" onclick="AppRequestCall(); return false;">Run Sample</a>
+    <h2>
+        GET Response
+    </h2>
+    <pre id="putResponse">
+    </pre>
+</p>

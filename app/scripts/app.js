@@ -29,7 +29,11 @@ angular
             })
             .when('/notes', {
                 templateUrl: 'views/notes.html',
-                controller: 'NotesCtrl'
+                controller: 'AboutCtrl'
+            })
+            .when('/parse', {
+                templateUrl: 'views/parse.html',
+                controller: 'AboutCtrl'
             })
             .otherwise({
                 redirectTo: '/'
