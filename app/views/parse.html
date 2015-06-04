@@ -1,13 +1,16 @@
 <script>
     jQuery.support.cors = true;
 
+    //url: 'http://localhost:53876/addSubscription/',
+
     function AppRequestCall() {
         $.ajax({
-            url: 'http://localhost:53876/addSubscription/',
+            url: 'https://iservices.earlymoments.com/addSubscription/',
             cache: false,
             type: "GET",
             data: {
                 Token: '21043192-9560-42B3-883C-76AA80EAA075',
+                environment: 'sandbox',
                 transactionType: 'S',
                 appName: 'LTR',
                 billingFnam: 'xyz',
@@ -15,6 +18,7 @@
                 subscriptionPlan: '1M',
                 subscriptionAmount: 6.99,
                 email: 'smadishetti@sandviks.com',
+                phone: '2032050188',
                 password: 'smile',
                 cardType: 'AX',
                 cardNumber: '371551218022054',
@@ -37,18 +41,20 @@
     jQuery.support.cors = true;
     function AppRequestCall() {
         $.ajax({
-            url: 'http://localhost:53876/addSubscription/',
+            url: 'https://iservices.earlymoments.com/addSubscription/',
             cache: false,
             type: "GET",
             data: {
                 Token: '21043192-9560-42B3-883C-76AA80EAA075',
+                environment: 'sandbox',
                 transactionType: 'S',
                 appName: 'LTR',
                 billingFnam: 'xyz',
                 billingLnam: 'xyz',
                 subscriptionPlan: '1M',
-                subscriptionAmount: '6.99',
+                subscriptionAmount: 6.99,
                 email: 'smadishetti@sandviks.com',
+                phone: '2032050188',
                 password: 'smile',
                 cardType: 'AX',
                 cardNumber: '371551218022054',
@@ -57,11 +63,11 @@
                 expirationYear: '16',
                 billingZip: '06810',
                 landingUrl: 'https://apps.hookedonphonics.com/?pc=ASDFGERU',
-                format = 'json'
+                format: 'json'
             },
 
             success: function (response) {
-                $("#putResponse").text(response.status + '\t' + response.refId + '\t' + response.subscriptionId + '\t' + response.message);
+                $("#putResponse").text('Status: ' + response.status + '\t Reference Id: ' + response.refId + '\tSubscription Id: ' + response.subscriptionId + '\tMessage: ' + response.message);
             }
         });
     }
